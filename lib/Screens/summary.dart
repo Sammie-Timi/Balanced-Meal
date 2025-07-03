@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:balanced_meal/models/ingredient.dart';
 import 'package:balanced_meal/Widget/Custom_button.dart';
+import 'package:balanced_meal/models/user_data.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart' as http;
@@ -65,6 +66,7 @@ class _SummaryOrderState extends State<SummaryOrder> {
 
   @override
   Widget build(BuildContext context) {
+    final dailyCal = UserData().dailyCalories ?? 2000;
     final summaryItems =
         widget.items
             .where((item) => (widget.quantities[item.name] ?? 0) > 0)
@@ -245,7 +247,7 @@ class _SummaryOrderState extends State<SummaryOrder> {
                     ),
                   ),
                   Text(
-                    '${widget.totalCalories.toInt()} Cal out of 1200 Cal',
+                    '${widget.totalCalories.toInt()} Cal out of ${dailyCal.toInt()} Cal',
                     style: GoogleFonts.poppins(
                       fontSize: 15,
                       color: Colors.grey.shade600,
