@@ -89,7 +89,9 @@ class _OrderState extends State<Order> {
       if (kDebugMode) {
         print('Vegetables: $vegetables');
       }
-      print('Meats: $meats');
+      if (kDebugMode) {
+        print('Meats: $meats');
+      }
       if (kDebugMode) {
         print('Carbs: $carbs');
       }
