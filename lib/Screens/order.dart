@@ -3,6 +3,7 @@ import 'package:balanced_meal/Widget/food_card.dart';
 import 'package:balanced_meal/models/ingredient.dart';
 import 'package:balanced_meal/models/user_data.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -82,10 +83,16 @@ class _OrderState extends State<Order> {
       //     Ingredient(name: 'Pasta', calories: 180, price: 2.5, image_url: ''),
       //   ];
       // }
-      print('Vegetables raw: ${vegSnap.docs.map((d) => d.data())}');
-      print('Vegetables: $vegetables');
+      if (kDebugMode) {
+        print('Vegetables raw: ${vegSnap.docs.map((d) => d.data())}');
+      }
+      if (kDebugMode) {
+        print('Vegetables: $vegetables');
+      }
       print('Meats: $meats');
-      print('Carbs: $carbs');
+      if (kDebugMode) {
+        print('Carbs: $carbs');
+      }
     });
   }
 
